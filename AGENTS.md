@@ -19,7 +19,8 @@ prepublishOnly` runs the check gate).
   (`test/package.test.ts`), the same transform pi uses to run extensions — do
   not switch `test` to plain `node --test` on the extension.
 - The published package ships only `index.ts`, `README.md`, `LICENSE`,
-  `package.json` (via `files`); `tsconfig.json`, `test/`, and workflows are dev
+  `package.json`, and `assets/` (via `files`); `tsconfig.json`, `test/`, and
+  workflows are dev
   only.
 - Core pi packages (`@earendil-works/pi-coding-agent`, `@earendil-works/pi-tui`)
   are bundled by pi, so they are `peerDependencies` (optional), never bundled.

@@ -15,6 +15,7 @@
   },
   "files": [
     "index.ts",
+    "assets/**/*",
     "README.md",
     "LICENSE"
   ],

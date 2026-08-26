@@ -9,6 +9,8 @@ Enable and disable pi extensions from the `/ext-mgr` command or the
 > not loaded (its tools, skills, prompt templates, and slash commands are cut
 > out); event-only hooks cannot be removed at runtime and are simply hidden.
 
+![ext-mgr menu](assets/ext-mgr-menu.png)
+
 ## Install
 
 ```bash
