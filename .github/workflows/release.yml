@@ -1,0 +1,24 @@
+name: release
+
+# Publish pi-extension-mgr to npm with provenance.
+# Requires an npm "Trusted Publisher" OIDC link for this repo on the
+# pi-extension-mgr package (owner-level), which supplies the publish token via
+# the id-token write permission below. No NODE_AUTH_TOKEN secret is used.
+on:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      id-token: write # OIDC trusted publishing / provenance
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      - run: npm ci
+      - run: npm publish --provenance
