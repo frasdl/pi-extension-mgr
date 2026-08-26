@@ -1,7 +1,7 @@
 {
   "name": "pi-extension-mgr",
   "version": "0.1.0",
-  "description": "Enable and disable pi extensions at runtime and via a CLI flag. It does not install or remove extensions.",
+  "description": "Enable and disable pi extensions at runtime (/ext-mgr) and via the --ignore-extension CLI option. It does not install or remove extensions.",
   "keywords": [
     "pi-package",
     "pi-extension",
@@ -10,20 +10,50 @@
   ],
   "type": "module",
   "license": "MIT",
+  "exports": {
+    ".": "./index.ts"
+  },
   "files": [
-    "index.ts"
+    "index.ts",
+    "README.md",
+    "LICENSE"
   ],
-  "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frasdl/pi-extension-mgr.git"
+  },
+  "homepage": "https://github.com/frasdl/pi-extension-mgr#readme",
+  "bugs": {
+    "url": "https://github.com/frasdl/pi-extension-mgr/issues"
+  },
   "pi": {
     "extensions": [
       "./index.ts"
     ]
   },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "node --test test/*.test.ts",
+    "check": "npm run typecheck && npm run test",
+    "prepublishOnly": "npm run check"
+  },
   "peerDependencies": {
     "@earendil-works/pi-coding-agent": "*",
     "@earendil-works/pi-tui": "*"
   },
-  "scripts": {
-    "check": "echo 'nothing to check'"
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-coding-agent": {
+      "optional": true
+    },
+    "@earendil-works/pi-tui": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "0.84.3",
+    "@earendil-works/pi-tui": "0.84.3",
+    "@types/node": "24.13.3",
+    "jiti": "2.7.0",
+    "typescript": "5.9.3"
   }
 }
